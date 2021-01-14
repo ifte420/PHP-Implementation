@@ -15,15 +15,9 @@ class Bmw extends Car{
         echo "This is Door $this->color";
     }
 }
-class Bmw_bd extends Bmw{
-    function glass(){
-        echo "This is Glass $this->color";
-    }
-}
 
-$object = new Bmw_bd;
+
+$object = new Bmw;
 $object->wheel();
 $object->door();
-$object->glass();
-
 ?>
