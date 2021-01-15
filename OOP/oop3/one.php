@@ -1,18 +1,29 @@
 <?php
 
 class DB{
-    function user_all(){
-        $db_connect = mysqli_connect('localhost', 'root', '', 'php registration data');
-        $select_query = "SELECT * FROM users";
-        $from_db = mysqli_query($db_connect, $select_query);
+    function db_connect(){
+        return $db_connect = mysqli_connect('localhost', 'root', '', 'php registration data');
+    }
+    function select($table_name){
+        $select_query = "SELECT * FROM $table_name";
+        $from_db = mysqli_query($this->db_connect(), $select_query);
         return $from_db;
+    }
+    function select_count($table_name){
+        $select_count_query = "SELECT COUNT(*) as total FROM $table_name";
+        $from_db = mysqli_fetch_assoc(mysqli_query($this->$db_connect, $select_count_query));
+        return $from_db['total'];
     }
 }
 
 $db = new DB;
-foreach($db -> user_all() as $user){
-    print_r($user['emai_address']);
-    echo "</br>";
+// print_r($db -> select_count("users"));
+foreach($db -> select("brands") as $user){
+    print_r($user);
 }
+// foreach($db -> select("fact") as $user){
+//     print_r($user);
+//     echo "</br>";
+// }
 
 ?>
