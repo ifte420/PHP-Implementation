@@ -2,6 +2,7 @@
 class Car {
     //Properties
     protected $color = "White";
+    //Properties
     function wheel(){
         echo "This is Wheel $this->color </br>";
     }
