@@ -11,19 +11,21 @@ class DB{
     }
     function select_count($table_name){
         $select_count_query = "SELECT COUNT(*) as total FROM $table_name";
-        $from_db = mysqli_fetch_assoc(mysqli_query($this->$db_connect, $select_count_query));
+        $from_db = mysqli_fetch_assoc(mysqli_query($this->db_connect(), $select_count_query));
         return $from_db['total'];
     }
 }
 
 $db = new DB;
-// print_r($db -> select_count("users"));
-// foreach($db -> select("brands") as $user){
-//     print_r($user);
-// }
-// foreach($db -> select("fact") as $user){
-//     print_r($user);
-//     echo "</br>";
-// }
+print_r($db -> select_count("users"));
+echo "</br>";
+foreach($db -> select("brands") as $user){
+    print_r($user);
+    echo "</br>";
+}
+foreach($db -> select("fact") as $user){
+    print_r($user);
+    echo "</br>";
+}
 
 ?>
