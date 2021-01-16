@@ -18,9 +18,9 @@ class DB{
 
 $db = new DB;
 // print_r($db -> select_count("users"));
-foreach($db -> select("brands") as $user){
-    print_r($user);
-}
+// foreach($db -> select("brands") as $user){
+//     print_r($user);
+// }
 // foreach($db -> select("fact") as $user){
 //     print_r($user);
 //     echo "</br>";
